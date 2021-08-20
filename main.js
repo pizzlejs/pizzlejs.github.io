@@ -4,7 +4,7 @@ docute.init({
   'edit-link': 'https://github.com/pizzlejs/pizzlejs.github.io/tree/master/',
   nav: [
     { title: 'Home', path: '/' },
-    { title: 'Github', path: 'https://guthub.com/pizzlejs/' }
+    { title: 'Github', path: 'https://github.com/pizzlejs/' }
     ],
   layout: 'narrow'
 });
