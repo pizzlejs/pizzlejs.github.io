@@ -1,5 +1,7 @@
 # PizzleJs — An Animation Library for Javascript
 
+![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hw/pizzle)
+
 #### Installation
 
 #### Npm
