@@ -3,6 +3,7 @@
 [![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hw/pizzle)](https://www.jsdelivr.com/package/npm/pizzle)
 [![npm](https://img.shields.io/npm/dw/pizzle)](https://npmjs.com/package/pizzle)
 
+# Please you can star 🌟 the project on [GitHub](https://github.com/pizzlejs/pizzlejs)
 
 #### Installation
 
