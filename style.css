@@ -1,3 +1,36 @@
 body {
     font-size: 15pt;
 }
+@keyframes rotate{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
+.rotate{
+  animation-name: rotate;
+  animation-timing-function: linear;
+}
+.rotate-1000{
+  animation-duration: 1s;
+}
+.rotate-2000{
+  animation-duration: 2s;
+}
+.rotate-3000{
+  animation-duration: 3s;
+}
+.rotate-4000{
+  animation-duration: 4s;
+}
+.rotate-5000{
+  animation-duration: 5s;
+}
+.rotate-infinite{
+  animation-iteration-count: infinite;
+}
+.rotate-reverse{
+  animation-direction: reverse;
+}

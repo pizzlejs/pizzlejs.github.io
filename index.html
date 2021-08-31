@@ -24,14 +24,128 @@
 <meta property="twitter:title" content="Pizzlejs — An Animation library">
 <meta property="twitter:description" content="Pizzlejs is a library for animations">
 <meta property="twitter:image" content="assets/logo.png">
-  <link rel="stylesheet" href="src/docutev3.css">
+  <link rel="stylesheet" href="css/tailwind.css">
+  <link rel="stylesheet" href="css/vs2015.css">
+  <link rel="stylesheet" href="src/pizzle.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div id="app"></div>
-  <script src="src/prism.js"></script>
-  <script src="src/docutev3.js"></script>
+  <div pizzle-start="app">
+    <nav class="shadow py-3">
+      <div class="mx-5 text-gray-500">
+         <h1 class="text-3xl font-bold">PizzleJs</h1>
+      </div>
+    </nav>
+    <div>
+      <div class="bg-indigo-500 py-5 relative h-56">
+        <h1 class="text-4xl font-bold text-white text-center relative top-16">PizzleJs</h1>
+     </div><br />
+     <div class="mx-5 md:mx-10">
+       <h1 class="text-2xl">Installation</h1><br />
+       <pre class="html"><code>&lt;!--Development-->
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pizzle@1.0.0/dist/pizzle.css" />
+&lt;script src="https://cdn.jsdelivr.net/npm/pizzle@1.0.0/dist/pizzle.js">&lt;/script>
+
+&lt;!--Production-->
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pizzle@1.0.0/dist/pizzle.min.css" />
+&lt;script src="https://cdn.jsdelivr.net/npm/pizzle@1.0.0/dist/pizzle.min.js">&lt;/script></code></pre>
+<br />
+<h1 class="text-2xl">Via Npm</h1><br />
+<pre class="bash"><code>$ npm install pizzle</code></pre><br />
+<h1 class="text-2xl underline">Usage</h1>
+<br />
+<pre class="js"><code>import pizzle from 'pizzle';
+var animate = new pizzle.create()
+animate.init()</code></pre><br />
+
+<h1 class="text-xl">Bounce</h1>
+<pre class="html" pizzle-bounce="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-bounce="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">Flash</h1>
+<pre class="html" pizzle-flash="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-flash="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">Tada</h1>
+<pre class="html" pizzle-tada="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-tada="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">Swing</h1>
+<pre class="html" pizzle-swing="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-swing="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">Shake</h1>
+<pre class="html" pizzle-shake="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-shake="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">Pulse</h1>
+<pre class="html" pizzle-pulse="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-pulse="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">RubberBand</h1>
+<pre class="html" pizzle-rubber-band="infinite 3000"><code>&lt;div pizzle-rubber-band="app">
+  &lt;h1 pizzle-bounce="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">FadeIn</h1>
+<pre class="html" pizzle-fade-in="infinite 3000"><code>&lt;div pizzle-fade-in="app">
+  &lt;h1 pizzle-bounce="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">BounceIn</h1>
+<pre class="html" pizzle-bounce-in="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-bounce-in="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-xl">BounceOut</h1>
+<pre class="html" pizzle-bounce-out="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-bounce-out="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+<h1 class="text-2xl">Create Your own pizzle animation</h1>
+<h2 class="text-xl">In this format</h2>
+<pre class="css"><code>@keyframes rotate{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
+.rotate{
+  animation-name: rotate;
+  animation-timing-function: linear;
+}
+.rotate-1000{
+  animation-duration: 1s;
+}
+.rotate-2000{
+  animation-duration: 2s;
+}
+.rotate-3000{
+  animation-duration: 3s;
+}
+.rotate-4000{
+  animation-duration: 4s;
+}
+.rotate-5000{
+  animation-duration: 5s;
+}
+.rotate-infinite{
+  animation-iteration-count: infinite;
+}
+.rotate-reverse{
+  animation-direction: reverse;
+}</code></pre>
+<h1 class="text-xl">Rotate</h1>
+<pre class="html md:mx-5" pizzle-rotate="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-rotate="infinite 300">&lt;/h1>
+&lt;/div></code></pre><br />
+     </div>
+     <footer class="bg-gray-500 py-5">
+       <h1 class="text-white text-center mx-5">©2021 Made by Tobithedev. Licenced by MIT</h1>
+     </footer>
+    </div>
+  </div>
+  <script src="src/highlight.min.js"></script>
+  <script src="src/pizzle.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
