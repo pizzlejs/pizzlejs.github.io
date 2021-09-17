@@ -65,11 +65,11 @@ pizzle-<animation-name>="infinite <duration>"
 ```
 
 ```html
-<div pizzle-app="<name>">
+<div pizzle-start="<name>">
 
 </div>
 ```
-The value of the attribute ``pizzle-app`` is the target for the ``pizzle.create()``
+The value of the attribute ``pizzle-start`` is the target for the ``pizzle.create()``
 
 #### Default Settings
 ```js
