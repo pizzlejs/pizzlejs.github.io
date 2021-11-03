@@ -27,9 +27,9 @@
   <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
   <link rel="manifest" href="assets/manifest.json">
-  <meta name="msapplication-TileColor" content="#FFAC55">
+  <meta name="msapplication-TileColor" content="#4464a8">
   <meta name="msapplication-TileImage" content="assets/ms-icon-144x144.png">
-  <meta name="theme-color" content="#FFAC55">
+  <meta name="theme-color" content="#4464a8">
 
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
     <!-- Primary Meta Tags -->
@@ -56,17 +56,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body $="background: #FFAC55">
   <div pizzle-start="app">
-    <nav class="shadow py-3">
-      <div class="mx-5 text-gray-500">
+    <nav class="shadow-lg fixed w-full py-3 bg-white">
+      <div class="mx-5 z-30 text-gray-500">
          <h1 class="text-3xl font-bold">PizzleJs</h1>
       </div>
     </nav>
     <div>
-      <div class="bg-indigo-500 py-5 relative h-56">
+      <div class="bg-gradient-to-b from-indigo-500 to-purple-500 z-50 py-5 relative h-80">
         <h1 class="text-4xl font-bold text-white text-center relative top-16">PizzleJs</h1>
-     </div><br />
+        <p class="text-3xl text-center text-white relative top-20">An Animation library for Javascript</p><br />
+        <div class="relative top-20 grid place-items-center">
+          <div class="inline-flex space-x-4">
+          <button class="px-3 py-3 bg-gray-100 rounded-xl"><a href="#get-started">Get Started</a></button>
+           <button class="px-3 py-3 bg-gray-900 text-white rounded-xl"><a href="https://github.com/pizzlejs/pizzlejs">GitHub</a></button>
+          </div>
+        </div>
+     </div><br /><br /><br />
      <div class="mx-5 md:mx-10">
        <h1 class="text-2xl">Installation</h1><br />
        <pre class="html"><code>&lt;!--Development-->
@@ -79,51 +86,117 @@
 <br />
 <h1 class="text-2xl">Via Npm</h1><br />
 <pre class="bash"><code>$ npm install pizzle</code></pre><br />
-<h1 class="text-2xl underline">Usage</h1>
+<h1 class="text-2xl underline" id="get-started">Usage</h1>
 <br />
 <pre class="js"><code>import pizzle from 'pizzle';
 var animate = new pizzle.create()
 animate.init()</code></pre><br />
-
+<h1 class="text-xl">For Customization</h1>
+<p class="text-lg">Default Setting</p>
+<pre class="js"><code>import pizzle from 'pizzle';
+var animate = new pizzle.create({
+  target: "app", // target for the pizzle-start attribute
+  duration: 1000, // for the animation duration fallback
+  directives: {} // for creating custom directives. Well not that useful
+})
+animate.init()</code></pre><br />
+<pre class="js"><code>import pizzle from 'pizzle';
+var animate = new pizzle.create({
+  target: "boom",
+  duration: 4000,
+  directives:{
+     html: function(el,{bind,name}){
+      // el is the target element
+      // bind is the value of the directives
+      // name is the name of the directives
+      el.innerHTML = bind;
+    }
+  }
+})
+animate.init()</code></pre><br />
+<pre class="html"><code>&lt;!-- Use the directives in the markup like this<br>
+  Note we have override the default target value so we have to change it in the pizzle-start attribute
+-->
+&lt;div pizzle-start="boom">
+  &lt;h1 pizzle:html="Hello World">&lt;/h1>
+  &lt;!-- Using default values -->
+  &lt;h1 pizzle:html="Hello World" pizzle-bounce="infinite">&lt;/h1>
+  &lt;!-- You want the animation to run once -->
+  &lt;h1 pizzle:html="Hello World" pizzle-bounce>&lt;/h1>
+&lt;/div></code></pre><br />
+<div class="overflow-hidden">
+  <h1 class="text-2xl">With Pizzle you can do reverse too.But the in-built didn't come with reverse.At the end of the page you'll see how to do reverse with pizzlejs</h1>
+  <h1 class="text-2xl">List of all the inbuilt animation</h1>
+  <ul class="px-3">
+    <li class="text-2xl">
+      <li class="text-2xl">Bounce</li>
+      <li>
+        <span class="text-2xl">BounceIn</span>
+        <ul class="px-3 text-2xl">
+          <li>BounceInLeft</li>
+          <li>BounceInRight</li>
+          <li>BounceInUp</li>
+          <li>BounceInDown</li>
+        </ul><br />
+        <span class="text-2xl">BounceOut</span>
+        <ul class="px-3 text-2xl">
+          <li>BounceOutLeft</li>
+          <li>BounceOutRight</li>
+          <li>BounceOutUp</li>
+          <li>BounceOutDown</li>
+        </ul>
+      </li>
+    </li>
+    <li class="text-2xl">Pulse</li>
+    <li class="text-2xl">Flash</li>
+    <li class="text-2xl">FadeIn</li>
+    <li class="text-2xl">Tada</li>
+    <li class="text-2xl">Swing</li>
+    <li class="text-2xl">Shake</li>
+    <li class="text-2xl">RubberBand</li>
+  </ul>
+  <br>
+  <br>
+  <br>
 <h1 class="text-xl">Bounce</h1>
 <pre class="html" pizzle-bounce="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-bounce="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-bounce="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">Flash</h1>
 <pre class="html" pizzle-flash="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-flash="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-flash="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">Tada</h1>
 <pre class="html" pizzle-tada="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-tada="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-tada="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">Swing</h1>
 <pre class="html" pizzle-swing="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-swing="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-swing="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">Shake</h1>
 <pre class="html" pizzle-shake="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-shake="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-shake="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">Pulse</h1>
 <pre class="html" pizzle-pulse="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-pulse="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-pulse="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">RubberBand</h1>
-<pre class="html" pizzle-rubber-band="infinite 3000"><code>&lt;div pizzle-rubber-band="app">
-  &lt;h1 pizzle-bounce="infinite 300">&lt;/h1>
+<pre class="html" pizzle-rubber-band="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-rubber-band="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">FadeIn</h1>
-<pre class="html" pizzle-fade-in="infinite 3000"><code>&lt;div pizzle-fade-in="app">
-  &lt;h1 pizzle-bounce="infinite 300">&lt;/h1>
+<pre class="html" pizzle-fade-in="infinite 3000"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-fade-in="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">BounceIn</h1>
 <pre class="html" pizzle-bounce-in="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-bounce-in="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-bounce-in="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-xl">BounceOut</h1>
 <pre class="html" pizzle-bounce-out="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-bounce-out="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-bounce-out="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
 <h1 class="text-2xl">Create Your own pizzle animation</h1>
 <h2 class="text-xl">In this format</h2>
@@ -161,17 +234,23 @@ animate.init()</code></pre><br />
   animation-direction: reverse;
 }</code></pre>
 <h1 class="text-xl">Rotate</h1>
+<p class="text-lg">Reverse method</p>
+<p class="text-lg">The reverse method works once the pizzle team still working on it</p>
+<pre class="html md:mx-5" pizzle-rotate="reverse"><code>&lt;div pizzle-start="app">
+  &lt;h1 pizzle-rotate="reverse">&lt;/h1>
+&lt;/div></code></pre><br />
 <pre class="html md:mx-5" pizzle-rotate="infinite 3000"><code>&lt;div pizzle-start="app">
-  &lt;h1 pizzle-rotate="infinite 300">&lt;/h1>
+  &lt;h1 pizzle-rotate="infinite 3000">&lt;/h1>
 &lt;/div></code></pre><br />
      </div>
+     </div>
      <footer class="bg-gray-500 py-5">
-       <h1 class="text-white text-center mx-5">©2021 Made by Tobithedev. Licenced by MIT</h1>
+       <h1 class="text-white text-center mx-5">©2021-<date-now></date-now> Made by Tobithedev. Licensed by MIT</h1>
      </footer>
     </div>
   </div>
   <script src="src/highlight.min.js"></script>
   <script src="src/pizzle.min.js"></script>
-  <script src="main.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>
