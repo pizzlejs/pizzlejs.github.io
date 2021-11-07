@@ -3,7 +3,7 @@
  "short_name": "pizzle",
  "start_url": ".",
  "display": "standalone",
- "background_color": "#FFAC55",
+ "background_color": "#4464a8",
  "description": "pizzle.js framework documentation",
  "icons": [
   {
