@@ -81,10 +81,10 @@ var default$ = {
 ```
 
 
-```js
-var defaultoptions = {
-  target: String,
-  duration: Number,
+```ts
+type defaultoptions = {
+  target: string,
+  duration: number,
   directives: Object,
 }
 ```
@@ -122,7 +122,7 @@ You can now use it with pizzlejs like this:
 #### Changing the default target
 
 ```js
-pizzle.create({
+new pizzle.create({
   target: 'root'
 }).init();
 ```
@@ -130,7 +130,7 @@ pizzle.create({
 #### Changing the default duration
 
 ```js
-pizzle.create({
+new pizzle.create({
   duration: 4000
 }).init();
 ```
@@ -138,7 +138,7 @@ pizzle.create({
 
 
 ```js
-pizzle.create({
+new pizzle.create({
   directives:{
     'color': function(el,{ bind }){
       // el is the target
